@@ -33,5 +33,7 @@ const CustomProvider: React.FC<{ children: React.ReactNode }> = (props) => {
   )
 }
 
-export const withContext = (component: () => React.ReactNode) => () =>
-  <CustomProvider>{component()}</CustomProvider>
+export const withContext = (component: () => React.ReactNode) =>
+  function getCustomProvider() {
+    return <CustomProvider>{component()}</CustomProvider>
+  }

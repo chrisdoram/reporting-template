@@ -1,3 +1,4 @@
+import React from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { RouterProvider } from 'react-router'
@@ -16,18 +17,19 @@ const queryClient = new QueryClient({
   },
 })
 
-const withRouter =
-  (createRouter: (queryClient: QueryClient) => Router) => () => {
+const withRouter = (createRouter: (queryClient: QueryClient) => Router) =>
+  function getRouterProvider() {
     return <RouterProvider router={createRouter(queryClient)} />
   }
 
-const withQuery = (component: () => React.ReactNode) => () => {
-  return (
-    <QueryClientProvider client={queryClient}>
-      {component()}
-      <ReactQueryDevtools position="bottom-right" initialIsOpen={false} />
-    </QueryClientProvider>
-  )
-}
+const withQuery = (component: () => React.ReactNode) =>
+  function getQueryClientProvider() {
+    return (
+      <QueryClientProvider client={queryClient}>
+        {component()}
+        <ReactQueryDevtools position="bottom-right" initialIsOpen={false} />
+      </QueryClientProvider>
+    )
+  }
 
 export const withQueryRouter = compose(withQuery, withRouter)

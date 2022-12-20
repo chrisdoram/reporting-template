@@ -17,18 +17,18 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
-      "@app/*":["app/*"],
-      "@app":["app/index"],
+      "@app/*": ["app/*"],
+      "@app": ["app/index"],
       "@pages/*": ["pages/*"],
       "@pages": ["pages/index"],
-      "@widgets/*":["widgets/*"],
-      "@widgets":["widgets/index"],
-      "@features/*":["features/*"],
-      "@features":["features/index"],
-      "@entities/*":["entities/*"],
-      "@entities":["entities/index"],
-      "@shared/*":["shared/*"],
-      "@shared":["shared/index"]
+      "@widgets/*": ["widgets/*"],
+      "@widgets": ["widgets/index"],
+      "@features/*": ["features/*"],
+      "@features": ["features/index"],
+      "@entities/*": ["entities/*"],
+      "@entities": ["entities/index"],
+      "@shared/*": ["shared/*"],
+      "@shared": ["shared/index"]
     }
   },
   "include": ["src"],
