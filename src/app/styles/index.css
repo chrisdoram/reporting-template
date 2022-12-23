@@ -1,0 +1,196 @@
+/* ------START----- Andy Bell's modern CSS reset -----START------ */
+/* ----- https://github.com/Andy-set-studio/modern-css-reset ----- */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------END------- Andy Bell's modern CSS reset -------END------ */
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --color-primary-1: #e6f7ff;
+  --color-primary-2: #bae7ff;
+  --color-primary-3: #91d5ff;
+  --color-primary-4: #69c0ff;
+  --color-primary-5: #40a9ff;
+  --color-primary-6: #1890ff;
+  --color-primary-7: #096dd9;
+  --color-primary-8: #0050b3;
+  --color-primary-9: #003a8c;
+  --color-primary-10: #002766;
+
+  --color-neutral-1: #ffffff;
+  --color-neutral-2: #fafafa;
+  --color-neutral-3: #f5f5f5;
+  --color-neutral-4: #f0f0f0;
+  --color-neutral-5: #d9d9d9;
+  --color-neutral-6: #bfbfbf;
+  --color-neutral-7: #8c8c8c;
+  --color-neutral-8: #595959;
+  --color-neutral-9: #434343;
+  --color-neutral-10: #262626;
+  --color-neutral-11: #1f1f1f;
+  --color-neutral-12: #141414;
+  --color-neutral-13: #000000;
+
+  --color-red-1: #fff1f0;
+  --color-red-2: #ffccc7;
+  --color-red-3: #ffa39e;
+  --color-red-4: #ff7875;
+  --color-red-5: #ff4d4f;
+  --color-red-6: #f5222d;
+  --color-red-7: #cf1322;
+  --color-red-8: #a8071a;
+  --color-red-9: #820014;
+  --color-red-10: #5c0011;
+
+  --color-gold-1: #fffbe6;
+  --color-gold-2: #fff1b8;
+  --color-gold-3: #ffe58f;
+  --color-gold-4: #ffd666;
+  --color-gold-5: #ffc53d;
+  --color-gold-6: #faad14;
+  --color-gold-7: #d48806;
+  --color-gold-8: #ad6800;
+  --color-gold-9: #874d00;
+  --color-gold-10: #613400;
+
+  --color-green-1: #f6ffed;
+  --color-green-2: #d9f7be;
+  --color-green-3: #b7eb8f;
+  --color-green-4: #95de64;
+  --color-green-5: #73d13d;
+  --color-green-6: #52c41a;
+  --color-green-7: #389e0d;
+  --color-green-8: #237804;
+  --color-green-9: #135200;
+  --color-green-10: #092b00;
+}
+
+body.dark {
+  --color-primary-1: #111d2c;
+  --color-primary-2: #112a45;
+  --color-primary-3: #15395b;
+  --color-primary-4: #164c7e;
+  --color-primary-5: #1765ad;
+  --color-primary-6: #177ddc;
+  --color-primary-7: #3c9ae8;
+  --color-primary-8: #65b7f3;
+  --color-primary-9: #8dcff8;
+  --color-primary-10: #b7e3fa;
+
+  --color-red-1: #2a1215;
+  --color-red-2: #431418;
+  --color-red-3: #58181c;
+  --color-red-4: #791a1f;
+  --color-red-5: #a61d24;
+  --color-red-6: #d32029;
+  --color-red-7: #e84749;
+  --color-red-8: #f37370;
+  --color-red-9: #f89f9a;
+  --color-red-10: #fac8c3;
+
+  --color-gold-1: #2b2111;
+  --color-gold-2: #443111;
+  --color-gold-3: #594214;
+  --color-gold-4: #7c5914;
+  --color-gold-5: #aa7714;
+  --color-gold-6: #d89614;
+  --color-gold-7: #e8b339;
+  --color-gold-8: #f3cc62;
+  --color-gold-9: #f8df8b;
+  --color-gold-10: #faedb5;
+
+  --color-green-1: #162312;
+  --color-green-2: #1d3712;
+  --color-green-3: #274916;
+  --color-green-4: #306317;
+  --color-green-5: #3c8618;
+  --color-green-6: #49aa19;
+  --color-green-7: #6abe39;
+  --color-green-8: #8fd460;
+  --color-green-9: #b2e58b;
+  --color-green-10: #d5f2bb;
+}
