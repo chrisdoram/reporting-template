@@ -12,6 +12,17 @@ export const createRouter = (queryClient: QueryClient) => {
       path: '/',
       element: <AppLayout />,
       errorElement: <ErrorPage />,
+      children: [
+        {
+          errorElement: <div>Catch all error elem</div>,
+          children: [
+            {
+              index: true,
+              element: <div>Root Outlet</div>,
+            },
+          ],
+        },
+      ],
     },
   ])
 }

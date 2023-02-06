@@ -1,0 +1,27 @@
+.appShell {
+  display: flex;
+  flex-direction: column;
+}
+
+.appShellHeader {
+  display: flex;
+  height: 44px;
+  border-bottom: 1px solid black;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.appShellBody {
+  display: flex;
+}
+
+.appShellNav {
+  width: 260px;
+  height: calc(100vh - 44px);
+  border-right: 1px solid black;
+  padding: 0.5rem;
+}
+
+.appShellMain {
+  padding: 0.5rem;
+}
