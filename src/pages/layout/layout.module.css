@@ -5,13 +5,110 @@
 
 .appShellHeader {
   display: flex;
-  justify-content: space-between;
-  background-color: var(--color-neutral-3);
+  background-color: var(--color-neutral-2);
   color: var(--color-title);
-  height: 50px;
+  height: 64px;
   border-bottom: 1px solid var(--color-border);
   align-items: center;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
+}
+
+.mainLogoAnchorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerMainLogo {
+  color: var(--color-primary-6);
+}
+
+.headerActionButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--color-neutral-6);
+  border-radius: 4px;
+  background-color: var(--color-neutral-4);
+  color: var(--color-title);
+  margin: 0.4rem;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  /* transition: all 0.1s ease; */
+}
+
+.headerActionButton:hover {
+  border: 1px solid var(--color-neutral-7);
+  background-color: var(--color-neutral-5);
+}
+
+.dropdownIcon {
+  display: inline-block;
+  margin: 1px 0 0 2px;
+}
+
+.recentAction {
+  composes: headerActionButton;
+  margin-left: 5rem;
+}
+
+.favoriteAction {
+  composes: headerActionButton;
+}
+
+.templateAction {
+  composes: headerActionButton;
+}
+
+.createReportAction {
+  composes: headerActionButton;
+  border: none;
+  background-color: var(--color-primary-6);
+  margin: 0 auto 0 2rem;
+  height: 32px;
+  width: 32px;
+  padding: 0;
+}
+
+.plusIcon {
+  color: var(--color-title);
+}
+
+.createReportAction:hover {
+  border: none;
+  background-color: var(--color-primary-5);
+}
+
+.createReportAction:active {
+  border: none;
+  background-color: var(--color-primary-7);
+}
+
+.iconActionsContainer {
+  display: flex;
+}
+
+.githubAnchorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: cebter;
+  margin-right: 20px;
+  color: var(--color-primary-text);
+  text-decoration: none;
+}
+
+.githubAnchorContainer:hover {
+  border-bottom: 3px solid var(--color-primary-5);
+  margin-top: 3px;
+}
+
+.githubLogoLink {
+  width: 42px;
+  margin-right: 10px;
+}
+
+.externalLinkLogo {
+  width: 10px;
 }
 
 .themeToggleContainer {
@@ -24,10 +121,15 @@
   border-radius: 14px;
   cursor: pointer;
   margin-right: 5px;
+  transition: all 0.2s ease;
 }
 
 .themeToggleContainer:hover {
   border: 1px solid var(--color-neutral-7);
+}
+
+.themeToggleContainer:focus-visible {
+  outline: -webkit-focus-ring-color auto 1px;
 }
 
 .themeToggle {
