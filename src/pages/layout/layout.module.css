@@ -5,10 +5,34 @@
 
 .appShellHeader {
   display: flex;
-  height: 44px;
-  border-bottom: 1px solid black;
+  justify-content: space-between;
+  background-color: var(--color-neutral-3);
+  color: var(--color-title);
+  height: 50px;
+  border-bottom: 1px solid var(--color-border);
   align-items: center;
   padding: 0.5rem;
+}
+
+.themeToggleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--color-neutral-5);
+  border-radius: 14px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.themeToggleContainer:hover {
+  border: 1px solid var(--color-neutral-7);
+}
+
+.themeToggle {
+  font-size: 18px;
+  color: var(--color-gold-6);
 }
 
 .appShellBody {
@@ -18,10 +42,12 @@
 .appShellNav {
   width: 260px;
   height: calc(100vh - 44px);
-  border-right: 1px solid black;
+  color: var(--color-primary-text);
+  border-right: 1px solid var(--color-border);
   padding: 0.5rem;
 }
 
 .appShellMain {
   padding: 0.5rem;
+  color: var(--color-primary-text);
 }

@@ -147,6 +147,15 @@ select {
   --color-green-8: #237804;
   --color-green-9: #135200;
   --color-green-10: #092b00;
+
+  --color-title: rgba(0, 0, 0, 0.85);
+  --color-primary-text: rgba(0, 0, 0, 0.65);
+  --color-secondary-text: rgba(0, 0, 0, 0.45);
+  --color-disable: rgba(0, 0, 0, 0.25);
+  --color-border: rgba(0, 0, 0, 0.15);
+  --color-divider: rgba(0, 0, 0, 0.06);
+  --color-font-background: rgba(0, 0, 0, 0.04);
+  --color-table-header: rgba(0, 0, 0, 0.02);
 }
 
 body.dark {
@@ -160,6 +169,20 @@ body.dark {
   --color-primary-8: #65b7f3;
   --color-primary-9: #8dcff8;
   --color-primary-10: #b7e3fa;
+
+  --color-neutral-1: #000000;
+  --color-neutral-2: #141414;
+  --color-neutral-3: #1f1f1f;
+  --color-neutral-4: #262626;
+  --color-neutral-5: #434343;
+  --color-neutral-6: #595959;
+  --color-neutral-7: #8c8c8c;
+  --color-neutral-8: #bfbfbf;
+  --color-neutral-9: #d9d9d9;
+  --color-neutral-10: #f0f0f0;
+  --color-neutral-11: #f5f5f5;
+  --color-neutral-12: #fafafa;
+  --color-neutral-13: #ffffff;
 
   --color-red-1: #2a1215;
   --color-red-2: #431418;
@@ -193,4 +216,17 @@ body.dark {
   --color-green-8: #8fd460;
   --color-green-9: #b2e58b;
   --color-green-10: #d5f2bb;
+
+  --color-title: rgba(255, 255, 255, 0.85);
+  --color-primary-text: rgba(255, 255, 255, 0.65);
+  --color-secondary-text: rgba(255, 255, 255, 0.45);
+  --color-disable: rgba(255, 255, 255, 0.3);
+  --color-border: rgba(255, 255, 255, 0.2);
+  --color-divider: rgba(255, 255, 255, 0.12);
+  --color-font-background: rgba(255, 255, 255, 0.08);
+  --color-table-header: rgba(255, 255, 255, 0.04);
+}
+
+body {
+  background-color: var(--color-neutral-2);
 }
