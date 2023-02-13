@@ -10,27 +10,27 @@ import styles from './layout.module.css'
 
 const AppLayout = () => {
   return (
-    <div className={styles.appShell}>
-      <header className={styles.appShellHeader}>
-        <a href="/" className={styles.mainLogoAnchorContainer}>
-          <RxNotionLogo size={42} className={styles.headerMainLogo} />
+    <>
+      <header>
+        <a href="/" className="flex-center">
+          <RxNotionLogo data-logo />
         </a>
-        <button className={styles.recentAction}>
+        <button className="flex-center">
           <span>Recent</span>
-          <RiArrowDropDownLine size={20} className={styles.dropdownIcon} />
+          <RiArrowDropDownLine />
         </button>
-        <button className={styles.favoriteAction}>
+        <button className="flex-center">
           <span>Favorites</span>
-          <RiArrowDropDownLine size={20} className={styles.dropdownIcon} />
+          <RiArrowDropDownLine />
         </button>
-        <button className={styles.templateAction}>
+        <button className="flex-center">
           <span>Templates</span>
-          <RiArrowDropDownLine size={20} className={styles.dropdownIcon} />
+          <RiArrowDropDownLine />
         </button>
-        <button className={styles.createReportAction}>
-          <HiPlus className={styles.plusIcon} />
+        <button className="flex-center mr-auto">
+          <HiPlus />
         </button>
-        <div className={styles.iconActionsContainer}>
+        <div className="flex-center">
           <a
             href="https://github.com/chrisdoram/reporting-template"
             target="_blank"
@@ -76,7 +76,7 @@ const AppLayout = () => {
           <Outlet />
         </main>
       </section>
-    </div>
+    </>
   )
 }
 
