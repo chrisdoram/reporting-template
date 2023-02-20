@@ -256,10 +256,6 @@ body {
   justify-content: center;
 }
 
-.mr-auto {
-  margin-right: auto;
-}
-
 /* ---------------------- HEADER ---------------------- */
 
 header {
@@ -274,7 +270,7 @@ header {
   color: var(--_text);
   height: var(--header-height);
   border-bottom: 1px solid var(--_section-border-color);
-  padding: 0.5rem 0.5rem 0.5rem 2rem;
+  padding: 0.5rem 1rem 0.5rem 2rem;
 }
 
 body.dark header {
@@ -286,7 +282,6 @@ svg[data-logo] {
   color: var(--_primary-accent);
   width: 40px;
   height: 40px;
-  margin-right: 5rem;
 }
 
 /* ---------------------- BUTTONS ---------------------- */
@@ -439,7 +434,7 @@ body.dark
     input[type='submit'],
     input[type='reset']
   ):where(:not(:active):hover) {
-  --_highlight-size: 0.5rem;
+  --_highlight-size: 0.2rem;
 }
 
 /* disabled */

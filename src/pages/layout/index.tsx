@@ -15,7 +15,7 @@ const AppLayout = () => {
         <a href="/" className="flex-center">
           <RxNotionLogo data-logo />
         </a>
-        <button className="flex-center">
+        <button className={`${styles.ml5} flex-center`}>
           <span>Recent</span>
           <RiArrowDropDownLine />
         </button>
@@ -27,7 +27,7 @@ const AppLayout = () => {
           <span>Templates</span>
           <RiArrowDropDownLine />
         </button>
-        <button className="flex-center mr-auto">
+        <button className={`${styles.plusIconBtn} flex-center`}>
           <HiPlus />
         </button>
         <div className="flex-center">
@@ -53,7 +53,7 @@ const AppLayout = () => {
               }
             }}
             onKeyDown={(e) => {
-              if (e.code == 'Enter') {
+              if (e.code == 'Enter' || e.code == 'Space') {
                 const theme = localStorage.getItem('theme')
                 if (theme == 'dark') {
                   localStorage.setItem('theme', 'light')
