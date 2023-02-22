@@ -1,0 +1,33 @@
+.appShellNav {
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  height: calc(100vh - 64px);
+  color: var(--color-primary-text);
+  border-right: 1px solid var(--color-border);
+  background-color: var(--_sidebar-background-color);
+  padding: 10px;
+}
+
+.navOption {
+  display: flex;
+  align-items: center;
+  /* width: calc(260px - 1px); */
+  width: calc(100% - 1px);
+  background-color: var(--color-neutral-4);
+  margin: 10px 1px 0 0;
+  padding: 10px 15px 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.navTextPrimary {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--_text);
+}
+
+.navOption:hover {
+  background-color: var(--color-neutral-5);
+}

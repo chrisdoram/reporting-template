@@ -19,7 +19,11 @@
     "project": ["./tsconfig.json"]
   },
   "plugins": ["react", "@typescript-eslint"],
-  "rules": {},
+  "rules": {
+    "@typescript-eslint/unbound-method": [2, {
+      "ignoreStatic": true
+    }]
+  },
   "settings": {
     "react": {
       "version": "detect"

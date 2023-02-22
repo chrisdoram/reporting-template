@@ -3,14 +3,7 @@ import react from '@vitejs/plugin-react'
 import alias from '@rollup/plugin-alias'
 import { resolve } from 'path'
 
-const ALIAS_PATHS = [
-  'app',
-  'pages',
-  'widgets',
-  'features',
-  'entities',
-  'shared',
-]
+const ALIAS_PATHS = ['application', 'domain', 'lib', 'services', 'ui']
 
 export default defineConfig({
   plugins: [

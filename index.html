@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="node_modules/flexlayout-react/style/light.css" />
+    <link rel="stylesheet" href="/src/index.css" />
+    <!-- <link rel="stylesheet" href="/node_modules/flexlayout-react/style/light.css" /> -->
+    <link href="/node_modules/flexlayout-react/style/light.css" rel="stylesheet" id="theme-link">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light dark" />
     <title>Reporting Template</title>
@@ -12,14 +14,27 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script type="text/Javascript">
+      const theme = document.querySelector("#theme-link")
+      const LIGHT_CSS = "/node_modules/flexlayout-react/style/light.css"
+      const DARK_CSS = "/node_modules/flexlayout-react/style/dark.css"
+
       if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.body.classList.add('dark')
         localStorage.setItem('theme', 'dark')
+        theme.href = DARK_CSS
       } else {
         document.body.classList.remove('dark')
+        theme.href = LIGHT_CSS
       }
-      // Whenever the user explicitly chooses to respect the OS preference (future state)
-      // localStorage.removeItem('theme')
+
+      document.addEventListener('theme-changed', (e) => {
+        // Swap out the URL for the different stylesheets
+        if (theme.getAttribute("href") == LIGHT_CSS) {
+          theme.href = DARK_CSS;
+        } else {
+          theme.href = LIGHT_CSS
+        }
+      })    
     </script>
   </body>
 </html>

@@ -1,3 +1,9 @@
+/* Assume light mode by default */
+/* @import '/node_modules/flexlayout-react/style/light.css' screen; */
+/* Supersede dark mode when applicable */
+/* @import '/node_modules/flexlayout-react/style/dark.css' screen and
+  (prefers-color-scheme: dark); */
+
 /* ------START----- Andy Bell's modern CSS reset -----START------ */
 /* ----- https://github.com/Andy-set-studio/modern-css-reset ----- */
 
@@ -103,6 +109,10 @@ select {
   --_section-border-color-dark: hsl(210deg 9% 31%);
   --_section-border-color: var(--_section-border-color-light);
 
+  --_sidebar-background-color-light: hsl(220deg 15.79% 96.27%);
+  --_sidebar-background-color-dark: hsl(210deg 9% 31%);
+  --_sidebar-background-color: var(--_sidebar-background-color-light);
+
   --color-primary-1: #e6f7ff;
   --color-primary-2: #bae7ff;
   --color-primary-3: #91d5ff;
@@ -175,6 +185,7 @@ body.dark {
   --_primary-accent: var(--_primary-accent-dark);
   --_text: var(--_text-dark);
   --_section-border-color: var(--_section-border-color-dark);
+  --_sidebar-background-color: var(--_sidebar-background-color-dark);
 
   --color-primary-1: #111d2c;
   --color-primary-2: #112a45;
@@ -250,6 +261,10 @@ body {
 
 /* ---------------------- Utility Classes ---------------------- */
 
+.flex {
+  display: flex;
+}
+
 .flex-center {
   display: flex;
   align-items: center;
@@ -268,7 +283,7 @@ header {
   gap: 1.5ch;
   background-color: var(--_bg-header);
   color: var(--_text);
-  height: var(--header-height);
+  height: var(--_header-height);
   border-bottom: 1px solid var(--_section-border-color);
   padding: 0.5rem 1rem 0.5rem 2rem;
 }
@@ -292,7 +307,7 @@ svg[data-logo] {
     input[type='submit'],
     input[type='reset'],
     input[type='file']
-  ),
+  ):not(.flexlayout-container *),
 :where(input[type='file'])::file-selector-button {
   --_accent-light: hsl(210 100% 40%);
   --_accent-dark: hsl(210 50% 70%);
@@ -360,7 +375,7 @@ body.dark
     input[type='submit'],
     input[type='reset'],
     input[type='file']
-  ),
+  ):not(.flexlayout-container *),
 :where(input[type='file'])::file-selector-button {
   --_bg: var(--_bg-dark);
   --_text: var(--_text-dark);
@@ -374,7 +389,12 @@ body.dark
   --_shadow-strength: var(--_shadow-strength-dark);
 }
 
-:where(button, input[type='button'], input[type='submit'], input[type='reset']),
+:where(
+    button,
+    input[type='button'],
+    input[type='submit'],
+    input[type='reset']
+  ):not(.flexlayout-container *),
 :where(input[type='file'])::file-selector-button {
   cursor: pointer;
   touch-action: manipulation;
@@ -405,12 +425,20 @@ body.dark
 }
 
 /* icon button */
-:where(button, input):has(svg:only-child) {
+:where(button, input):not(.flexlayout-container):has(svg:only-child):not(
+    .flexlayout-container *
+  ) {
   padding: 0.5ch;
 }
 
 /* icons */
-:where(button, input[type='button'], input[type='submit'], input[type='reset'])
+:where(
+    button,
+    input[type='button'],
+    input[type='submit'],
+    input[type='reset'],
+
+  ):not(.flexlayout-container *)
   > :where(svg, [data-icon]) {
   block-size: var(--_icon-size);
   inline-size: var(--_icon-size);
@@ -423,7 +451,9 @@ body.dark
 }
 
 /* focus */
-:where(button, input):where(:not(:active)):focus-visible {
+:where(button, input):not(.flexlayout-container *):where(
+    :not(:active)
+  ):focus-visible {
   outline-offset: 5px;
 }
 
@@ -433,7 +463,7 @@ body.dark
     input[type='button'],
     input[type='submit'],
     input[type='reset']
-  ):where(:not(:active):hover) {
+  ):not(.flexlayout-container *):where(:not(:active):hover) {
   --_highlight-size: 0.2rem;
 }
 
@@ -443,7 +473,7 @@ body.dark
     input[type='button'],
     input[type='submit'],
     input[type='reset']
-  )[disabled] {
+  ):not(.flexlayout-container *)[disabled] {
   --_bg: none;
   --_text-light: hsl(210 7% 40%);
   --_text-dark: hsl(210 11% 71%);
@@ -453,30 +483,32 @@ body.dark
 }
 
 /* adaptive indigo text */
-:where([type='submit'], form button:not([type], [disabled])) {
+:where([type='submit'], form button:not([type], [disabled])):not(
+    .flexlayout-container *
+  ) {
   --_text: var(--_accent);
 }
 
 /* red reset */
-:where([type='reset']) {
+:where([type='reset']):not(.flexlayout-container *) {
   --_border-light: hsl(0 100% 83%);
   --_highlight-light: hsl(0 100% 89% / 20%);
   --_text-light: hsl(0 80% 50%);
   --_text-dark: hsl(0 100% 89%);
 }
 
-:where([type='reset']):focus-visible {
+:where([type='reset']):focus-visible:not(.flexlayout-container *) {
   outline-color: currentColor;
 }
 
 /* file input */
-:where(input[type='file']) {
+:where(input[type='file']):not(.flexlayout-container *) {
   inline-size: 100%;
   max-inline-size: max-content;
   background-color: var(--_input-well);
 }
 
-:where(input[type='button']),
+:where(input[type='button']):not(.flexlayout-container *),
 :where(input[type='file'])::file-selector-button {
   appearance: none;
 }
@@ -492,7 +524,7 @@ body.dark
     [type='reset'],
     [disabled],
     form button:not([type='button'])
-  ) {
+  ):not(.flexlayout-container *) {
   --_bg: var(--_input-well);
 }
 
