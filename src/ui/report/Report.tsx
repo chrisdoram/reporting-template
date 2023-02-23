@@ -42,7 +42,7 @@ const json: FlexLayout.IJsonModel = {
   },
 }
 
-const Report = () => {
+export const Report = () => {
   const { id, name } = useParams()
   const [model, setModel] = useState(FlexLayout.Model.fromJson(json))
   const factory = (node: FlexLayout.TabNode) => {
@@ -52,19 +52,5 @@ const Report = () => {
     }
   }
 
-  return (
-    <div
-      style={{
-        height: '100%',
-        width: '100%',
-        position: 'fixed',
-        margin: '0px',
-      }}
-      className="flexlayout-container"
-    >
-      <FlexLayout.Layout model={model} factory={factory} />
-    </div>
-  )
+  return <FlexLayout.Layout model={model} factory={factory} />
 }
-
-export default Report

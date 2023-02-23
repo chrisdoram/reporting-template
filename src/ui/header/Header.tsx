@@ -9,7 +9,7 @@ import { useSetTheme } from '@application/setTheme'
 
 import styles from './header.module.css'
 
-const Header = () => {
+export const Header = () => {
   const { theme, setTheme } = useSetTheme()
 
   const toggleTheme = () => {
@@ -66,5 +66,3 @@ const Header = () => {
     </header>
   )
 }
-
-export default Header

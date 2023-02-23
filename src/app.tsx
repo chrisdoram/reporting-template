@@ -1,8 +1,8 @@
 import React from 'react'
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 
-import AppShell from '@ui/shell'
-import Report from '@ui/report'
+import { AppShell } from '@ui/shell'
+import { Report } from '@ui/report'
 
 const router = createBrowserRouter([
   {
