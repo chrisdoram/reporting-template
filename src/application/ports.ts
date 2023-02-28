@@ -1,5 +1,3 @@
-import { Theme } from '@domain/theme'
-
 export interface themeStorageService {
   theme: Theme | undefined
   setTheme(value: Theme): void

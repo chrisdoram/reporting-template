@@ -1,4 +1,4 @@
 export type Grid = {
   id: UniqueId
-  columns: Column[]
+  reportId: string
 }
