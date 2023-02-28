@@ -1,5 +1,4 @@
 import { themeStorageService } from '@application/ports'
-import { Theme } from '@domain/theme'
 import { useLocalStorage } from './localStorage'
 
 export const useThemeStorage = (): themeStorageService => {

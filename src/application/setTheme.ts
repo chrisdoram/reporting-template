@@ -1,4 +1,3 @@
-import { Theme } from '@domain/theme'
 import { useThemeEvent } from '@services/customEventAdapter'
 import { useThemeStorage } from '@services/localStorageAdapter'
 

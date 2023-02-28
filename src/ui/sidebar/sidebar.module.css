@@ -31,3 +31,7 @@
 .navOption:hover {
   background-color: var(--color-neutral-5);
 }
+
+.navTextPrimaryActive {
+  color: var(--_primary-accent);
+}

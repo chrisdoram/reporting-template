@@ -9,3 +9,11 @@ export type Report = {
   description: string
   name: string
 }
+
+export type DBReport = {
+  id: UniqueId
+  userId: string
+  model: string
+  description: string
+  name: string
+}

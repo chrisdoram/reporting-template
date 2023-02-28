@@ -1,5 +1,4 @@
 import { Listener, themeEventService } from '@application/ports'
-import { Theme } from '@domain/theme'
 
 declare global {
   interface DocumentEventMap {

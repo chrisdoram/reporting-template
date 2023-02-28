@@ -1,15 +1,32 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import { useReportsQuery } from '@application/getReports'
 
 import styles from './sidebar.module.css'
 
 export const SideNav = () => {
-  // get url, test if url matches link to, make color blue if true
+  const location = useLocation()
+  const { status, data, error } = useReportsQuery()
   return (
     <nav className={styles.appShellNav}>
-      <Link to="r/123/name" className={styles.navOption}>
-        <div className={styles.navTextPrimary}>Report</div>
-      </Link>
+      {data?.map((report) => {
+        const active = location.pathname === `/r/${report.id}/${report.name}`
+        return (
+          <Link
+            to={`r/${report.id}/${report.name}`}
+            className={styles.navOption}
+            key={report.id}
+          >
+            <div
+              className={`${styles.navTextPrimary} ${
+                active ? styles.navTextPrimaryActive : ''
+              }`}
+            >
+              {report.name}
+            </div>
+          </Link>
+        )
+      })}
     </nav>
   )
 }

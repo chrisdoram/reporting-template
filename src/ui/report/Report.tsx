@@ -1,77 +1,43 @@
 import React, { useState, useRef, useMemo, useCallback } from 'react'
 import { useParams } from 'react-router-dom'
-import { AgGridReact } from 'ag-grid-react'
-import { GridOptions, RowClickedEvent } from 'ag-grid-community'
+
 import * as FlexLayout from 'flexlayout-react'
 
-import _json from '@lib/model.json'
-import _data from '@lib/olympic-winners.json'
+import { useReportQuery } from '@application/getReports'
 
-import 'ag-grid-community/styles/ag-grid.css'
-import 'ag-grid-community/styles/ag-theme-balham.css'
-
-interface IOlympic {
-  athlete: string
-  age: number
-  country: string
-  year: number
-  date: string
-  sport: string
-  gold: number
-  silver: number
-  bronze: number
-  total: number
-}
-
-const json = _json as FlexLayout.IJsonModel
-const data = _data as IOlympic[]
+import { Grid } from '@ui/grid'
+import { useUpdateReportMutation } from '@application/saveReport'
+import { useQueryClient } from '@tanstack/react-query'
 
 export const Report = () => {
   const { id, name } = useParams()
-  const gridRef = useRef(null)
-  const [model, setModel] = useState(FlexLayout.Model.fromJson(json))
-  const [rowData, setRowData] = useState(data)
+  document.title = name ?? 'Reporting Template'
+  // const { status, data, error } = useGridQuery()
+  const queryClient = useQueryClient()
+  const {
+    status: reportStatus,
+    data: reportData,
+    error: reportError,
+  } = useReportQuery(id ?? '-1')
 
-  const gridOptions: GridOptions<IOlympic> = {
-    columnDefs: useMemo(() => {
-      return [
-        { field: 'athlete' },
-        { field: 'age' },
-        { field: 'country' },
-        { field: 'year' },
-        { field: 'date' },
-        { field: 'sport' },
-        { field: 'gold' },
-        { field: 'silver' },
-        { field: 'bronze' },
-        { field: 'total' },
-      ]
-    }, []),
-    onRowClicked: useCallback<(event: RowClickedEvent<IOlympic>) => void>(
-      (event) => {
-        if (event.data) {
-          const age = event.data.age
-          window.alert(`${age}`)
-        }
-      },
-      []
-    ),
-  }
+  const updateReportMutation = useUpdateReportMutation(queryClient)
+
+  // const [model, setModel] = useState(reportData?.model)
 
   const factory = (node: FlexLayout.TabNode) => {
-    return (
-      <div
-        className="ag-theme-balham"
-        style={{ width: '100%', height: '100%' }}
-      >
-        <AgGridReact
-          ref={gridRef}
-          rowData={rowData}
-          gridOptions={gridOptions}
-        />
-      </div>
-    )
+    const gridId = node.getComponent()
+    return <Grid id={gridId} />
   }
 
-  return <FlexLayout.Layout model={model} factory={factory} />
+  return (
+    <>
+      {reportStatus === 'success' && (
+        <FlexLayout.Layout
+          model={FlexLayout.Model.fromJson(reportData.model)}
+          // onModelChange={() => {}}
+          factory={factory}
+        />
+      )}
+    </>
+  )
 }
